@@ -30,7 +30,8 @@ def run_diagnostics(sslw):
                     user=SERVER_USERNAME,
                     password=SERVER_PASSWORD)
     assert server.genres
-    assert server.playlists
+    if len(server.playlists)>0:
+        print("Playlists found")
     cur_play_details = server.get_track_details().values()
     if cur_play_details:
         print("Currently playing: %s" %
